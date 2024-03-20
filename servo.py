@@ -34,8 +34,7 @@ class Servo:
                 self._angular_range *
                 ((result - self._min_value) / self._value_range) +
                 self._min_angle, 12)
-
-    @angle.setter
+        
     def setAngle(self, angle):
         if angle is None:
             self.value = None
