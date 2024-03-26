@@ -4,17 +4,7 @@ from sys import version_info
 PY2 = version_info[0] == 2   #Running Python 2.x?
 
 class Controller:
-    # When connected via USB, the Maestro creates two virtual serial ports
-    # /dev/ttyACM0 for commands and /dev/ttyACM1 for communications.
-    # Be sure the Maestro is configured for "USB Dual Port" serial mode.
-    # "USB Chained Mode" may work as well, but hasn't been tested.
-    #
-    # Pololu protocol allows for multiple Maestros to be connected to a single
-    # serial port. Each connected device is then indexed by number.
-    # This device number defaults to 0x0C (or 12 in decimal), which this module
-    # assumes.  If two or more controllers are connected to different serial
-    # ports, or you are using a Windows OS, you can provide the tty port.  For
-    # example, '/dev/ttyACM2' or for Windows, something like 'COM3'.
+
     def __init__(self,ttyStr='/dev/ttyS0',device=0x0c):
         # Open the command port
         self.usb = serial.Serial(ttyStr)
@@ -40,12 +30,7 @@ class Controller:
         else:
             self.usb.write(bytes(cmdStr,'latin-1'))
 
-    # Set channels min and max value range.  Use this as a safety to protect
-    # from accidentally moving outside known safe parameters. A setting of 0
-    # allows unrestricted movement.
-    #
-    # ***Note that the Maestro itself is configured to limit the range of servo travel
-    # which has precedence over these values.  Use the Maestro Control Center to configure
+    
     # ranges that are saved to the controller.  Use setRange for software controllable ranges.
     def setRange(self, chan, min, max):
         self.Mins[chan] = min

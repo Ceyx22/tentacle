@@ -1,5 +1,5 @@
 
-servo1 = 2
-servo2 = 3 
-servo3 = 4
-servo4 = 5
+CHANNEL_SERVO1 = 2
+CHANNEL_SERVO2 = 3 
+CHANNEL_SERVO3 = 4
+CHANNEL_SERVO4 = 5
