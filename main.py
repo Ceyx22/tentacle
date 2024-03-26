@@ -5,14 +5,15 @@ def test():
     servo = servoController.Controller()
     servo.setAccel(0,25)
     servo.setTarget(0,6000)
-    servo.setAccel(1,25)
-    servo.setTarget(1,6000)
+    # servo.setAccel(1,25)
+    # servo.setTarget(1,6000)
     time.sleep(2)
+    
     servo.setAccel(0,25)
     servo.setTarget(0,1000)
-    servo.setAccel(1,25)
-    servo.setAccel(1,1000)
-    servo.close
+    # servo.setAccel(1,25)
+    # servo.setAccel(1,1000)
+    servo.close()
 
 def sub():
     servo = servoController.Controller()
@@ -24,4 +25,5 @@ def sub():
 
 if __name__ == "__main__":
     test()
+    # sub()
     
